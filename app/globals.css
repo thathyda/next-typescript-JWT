@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-	font-family: var(--font-inter), var(--font-suwannaphum) !important;
+	font-variant-ligatures: var(--font-inter), var(--font-suwannaphum) !important;
 }
 
 h1 {
-	font-family: var(--font-osaka-re);
+	font-variant-ligatures: var(--font-osaka-re);
 }
 
 .none-scroll-bar::-webkit-scrollbar {

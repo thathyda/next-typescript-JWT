@@ -293,7 +293,6 @@ export default function Product() {
 		</main>
 	);
 }
-
 const CustomInput = ({ field, form, setFieldValue }: any) => {
 	const [imagePreview, setImagePreview] = useState("");
 
