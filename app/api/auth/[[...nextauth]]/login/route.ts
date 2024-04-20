@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
   // Make a POST request to the Our API
   const response = await fetch(
-    ${process.env.DJANGO_API_URL}/api/user/login/,
+    `${process.env.DJANGO_API_URL}/api/user/login/`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -26,13 +26,13 @@ export async function POST(req: NextRequest) {
     );
   }
   const data = await response.json();
-  const user = data?.user  null;
-  const accessToken = data?.access_token  null;
-  const refreshToken = data?.refresh_token  null;
+  const user = data?.user || null;
+  const accessToken = data?.access_token || null;
+  const refreshToken = data?.refresh_token || null;
 
   // Serialize the refresh token and set it as a cookie with
   // (httpOnly, secure, path, and sameSite options) in the response headers to the client-side
-  const cookieName = process.env.COOKIE_REFRESH_TOKEN_NAME  "refresh";
+  const cookieName = process.env.COOKIE_REFRESH_TOKEN_NAME || "refresh";
   const serialized = serialize(cookieName, refreshToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
